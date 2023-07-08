@@ -215,6 +215,18 @@ function searchTable( T, needle)
  return false,0
 end
 
+--String(s)
+function split(inputstr, sep)
+ sep=sep or '%s'
+ local t={}
+ for field,s in string.gmatch(inputstr, "([^"..sep.."]*)("..sep.."?)") do
+  table.insert(t,field)
+  if s=="" then
+   return t
+  end
+ end
+end
+
 --CC Lua Code:
 --GLOBAL CC CONSTANTS
 --GLOBAL CC Variables

@@ -1,8 +1,8 @@
 -- Created: 20211230
 -- Purpose: Moved some common CC movement functions/methods into a module/library for code reusability
 -- Author: ScorpionInc
--- Updated: 20211230
--- Version: 0.0.1b
+-- Updated: 20230703
+-- Version: 0.0.1c
 -- CHANGELOG:
 -- TODO:
 
@@ -18,7 +18,10 @@ require("SI-Inventory")--digArea
 CHUNK_SIZE = 16
 CARDINAL_DIRECTIONS_4S = { "N", "E", "S", "W" }
 CARDINAL_DIRECTIONS_4L = { "North", "East", "South", "West" }
+CARDINAL_DIRECTIONS_6S = { "N", "E", "S", "W", "U", "D" }
+CARDINAL_DIRECTIONS_6L = { "North", "East", "South", "West", "Up", "Down" }
 --GLOBAL CC Variables
+dirInit = false
 posInit = false
 posX = 0
 posY = 0
@@ -90,6 +93,12 @@ local function _OnPositionChanged()
  x,z = getRegionFromChunk( chunkX, chunkZ )
  regionX = x
  regionZ = z
+end
+function isDirectionInitialized()
+ return dirInit
+end
+function isPositionInitialized()
+ return posInit
 end
 function setPosition( newX, newY, newZ )
  -- Sets position to a new location, then updates chunk and region.
@@ -524,7 +533,8 @@ end
 function goto_chunk_xz_f( chunkX, chunkZ )
  -- TODO
 end
-local function digArea( xDistance, yDistance, zDistance )
+
+function digArea( xDistance, yDistance, zDistance )
  -- Removes any blocks in an area.
  -- Returns void(Method)
  local volume = xDistance * zDistance * yDistance

@@ -15,7 +15,7 @@ require("SI-Print")
 --GLOBAL CC CONSTANTS
 --GLOBAL CC Variables
 
-local function hasEmptySlot()
+function hasEmptySlot()
  -- Returns true if has an empty slot, false otherwise
  for i = 1, INVENTORY_SLOTS, 1 do
   if turtle.getItemCount( i )==0 then
@@ -24,7 +24,7 @@ local function hasEmptySlot()
  end
  return false
 end
-local function findFuelSlot()
+function findFuelSlot()
  -- TODO
  -- Returns index of slot containing valid turtle food(fuel).
  -- Returns 0 on fail.
@@ -34,38 +34,38 @@ local function findFuelSlot()
  end
  return 0
 end
-local function findSwordSlot()
+function findSwordSlot()
  -- TODO
  -- Returns index of slot containing valid tool(sword).
  -- Returns 0 on fail.
  return 0
 end
-local function findAxSlot()
+function findAxSlot()
  -- TODO
  -- Returns index of slot containing valid tool(ax).
  -- Returns 0 on fail.
  return 0
 end
-local function findPickaxSlot()
+function findPickaxSlot()
  -- TODO
  -- Returns index of slot containing valid tool(ax).
  -- Returns 0 on fail.
  return 0
 end
-local function findShovelSlot()
+function findShovelSlot()
  -- TODO
  -- Returns index of slot containing valid tool(shovel).
  -- Returns 0 on fail.
  return 0
 end
-local function findBucketSlot()
+function findBucketSlot()
  -- TODO
  -- Returns index of slot containing valid tool(sword).
  -- Returns 0 on fail.
  return 0
 end
 
-local function refuelAll()
+function refuelAll()
  -- Attempts to refuel from all slots
  -- Returns void(Method)
  local currentSelectedSlot = turtle.getSelectedSlot()
@@ -75,7 +75,7 @@ local function refuelAll()
  end
  turtle.select( currentSelectedSlot )
 end
-local function requireFuelAmount( amount )
+function requireFuelAmount( amount )
  -- NOP(Loop) Until enough fuel is added to inventory
  local currentSelectedSlot = turtle.getSelectedSlot() --To be restored if changed in this non-thread safe section
  if (fuelCap=="unlimited") then

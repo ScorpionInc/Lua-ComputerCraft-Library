@@ -23,7 +23,7 @@ fuelStart = 0
 fuelStop = 0
 fuelCap = turtle.getFuelLimit()
 fuelDelta = 0
-initializeMove(223, 81, -2480, "W")
+initializeMove(-16, 134, -47, "E")
 
 -- Turtle Specific
 local function printUsage()
@@ -65,3 +65,4 @@ print(""..getFullPositionString().."")
 fuelStop = turtle.getFuelLevel()
 fuelDelta = (fuelStart - fuelStop)
 print("Fuel Changed by: '" .. tostring(fuelDelta) .. "' this cycle. New fuel: " .. tostring(fuelStop) .. ".")
+--digArea(3,200,3)
